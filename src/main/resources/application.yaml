@@ -6,10 +6,18 @@ spring:
     name: nikke-hub-config-server
   cloud:
     config:
+      allow-override: true
+      override-none: true
+      fail-fast: true
+
       server:
         git:
           uri: ${CONFIG_SERVER_GIT_URI}
           clone-on-start: ${CLONE_ON_START}
+
+  environment:
+    system-properties: true
+    system-environment: true
 
 eureka:
   instance:
